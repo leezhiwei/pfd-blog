@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFD-Blog</title>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="../css/main.css" rel="stylesheet">
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
+    <!--Navigation bar-->
+    <div id="nav-placeholder">
+    </div>
+    <div class="container">
+        <h2>Break</h2>
+        <p>
+            Hi, this is what I did during the break of PFD, continuing on the project, I installed XAMPP
+            which is a integrated suite of Apache, MySQL (MariaDB), and PHP on board, which I used to develop
+            the API for the project. Ideally, I would love to set up nginx, PHP and ASP.NET core on the cloud instance.
+            Allowing for the use of forwarding traffic and all, to the different aspects, API and admin panel.
+        </p>
+        <p>
+            Firstly, me and my team met up, and converted the completed Microsoft SQL Server database into a 
+            MySQL database, and helping them install the ADO.NET connector for MySQL on their NuGet in the ASP.NET
+            Project. After that, I went onto develop the PHP API, where basically the connection PHP file is in another directory
+            which is not <code>/var/www/html</code>, to avoid credential leakage. Next is using some code samples online to make it
+            easier to talk to the MySQL database, and using Prepared Statements (to avoid SQL Injection). Next, is to
+            do some exception handling to try and kill the server (so that malicious users) cannot break in so easily,
+            via errors and such. Ensure that they are sending proper JSON, and having correct fields, only after that,
+            it will push to the MySQL database, Ideally, I would want some Authentication via JWT (Json Web Tokens),
+            and use of Transactions in Database (to not conflict with the Admin side). And only push when it is safe.
+            This will be done after the break (as well as HTTPS with certificates).
+            For the retrieving of data, it will also use POST, which the Pi will send the ID's to the respectively
+            endpoints, either retrieving a number ID, or a JSON for Python to parse into a Dictionary.
+        </p>
+        <img src="../img/break/xampp.png" style="width: 75%; height:auto">
+        <img src="../img/break/phpconn.png" style="width: 75%; height:auto">
+        <img src="../img/break/gs1.png" style="width: 75%; height:auto">
+        <img src="../img/break/sg2.png" style="width: 75%; height:auto">
+        <img src="../img/break/sd1.png" style="width: 75%; height:auto">
+        <img src="../img/break/sd2.png" style="width: 75%; height:auto">
+        <img src="../img/break/sd3.png" style="width: 75%; height:auto">
+            <footer>
+                <b>Lee Zhi Wei, 2023</b>
+            </footer>
+    </div>
+    <script>
+    $(function(){
+        $("#nav-placeholder").load("./nav.html");
+    });
+    </script>
+    <footer>
+<!--end of Navigation bar-->
+</body>
+</html>
