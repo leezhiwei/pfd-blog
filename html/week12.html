@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFD-Blog</title>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="../css/main.css" rel="stylesheet">
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
+    <!--Navigation bar-->
+    <div id="nav-placeholder">
+    </div>
+    <div class="container">
+        <h2>Week 12</h2>
+        <p>
+           Hello, and welcome back to my blog. Happy new year, to anyone who is reading this currently.
+           Since the alloted PFD timing for this week is during a public break, we have decided to do a 
+           teams call and discuss about a few aspects of the project. Mainly, the switching of technologies
+           and discussion of technological aspects and feasability. 
+        </p>
+        <p>
+            Previously, after the presentation of our solution to our stakeholders at AIDC, we realised that
+            other teams did have a lot of front-end UI facing applications, and after votes and decisions, we
+            decided to make an administrator's console, using a full stack application, made in <a href="https://asp.net">ASP.NET</a> and <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">C#</a>,
+            (since that is what most of our group is used to). I was thinking of a solution, (if we do have access to the bare Console of the Instance),
+            where MySQL would be hosted on AIDC's end, and would be used to interface between the 
+            <a href="./break.html">PHP Endpoint</a> and the <a href="https://asp.net">ASP.NET</a> application, it could be done using routing of the web server
+            such as <a href="https://www.nginx.com/">NGINX</a> or <a href="https://httpd.apache.org/">The Apache HTTP Server</a>.
+            For the analysis of data using Tableau, are thinking of enabling an <a href="https://en.wikipedia.org/wiki/Tunneling_protocol">SSH tunnel</a>
+            to open a route from the instance to the data analyst's computer. Then we will feed data directly to Tableau from the MySQL database.
+        </p>
+        <p>
+            For next week, our team will be starting on using ASP.NET and starting integration with our local
+            MySQL instance, and I will be working on getting the Raspberry Pi up and running, getting it hooked up
+            to the internet and updated, and hopefully running the gantry software again. See you next week.
+        </p>
+        <img src="../img/week12/dotnet.png" style="width: 75%; height:auto">
+        <img src="../img/week12/mysql.png" style="width: 75%; height:auto">
+        <img src="../img/week12/nginx.png" style="width: 75%; height:auto">
+        <img src="../img/week12/php.png" style="width: 75%; height:auto">
+            <footer>
+                <b>Lee Zhi Wei, 2023</b>
+            </footer>
+    </div>
+    <script>
+    $(function(){
+        $("#nav-placeholder").load("./nav.html");
+    });
+    </script>
+    <footer>
+<!--end of Navigation bar-->
+</body>
+</html>
