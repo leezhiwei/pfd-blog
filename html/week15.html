@@ -17,38 +17,53 @@
     <div id="nav-placeholder">
     </div>
     <div class="container">
-        <h2>Week 13</h2>
+        <h2>Week 15</h2>
         <p>
-            Welcome back to the Week 13 blog, where we are back to the classroom at last.
-            We have a couple of things planned for this week, getting the Pi up and running again,
-            and getting the ASP.NET application up, and connected to the MySQL database.
+            Welcome to Week 15. I have successfully deployed the <a href="https://asp.net">ASP.NET</a> Administration
+            application and PHP (API application) to my cloud instance, as well as my MySQL database, which is interfaced by both 
+            parts. In this case, I used my own Cloud Instance to deploy the apps onto, (since AIDC did not respond).
+            The specification is shown as below.
         </p>
+        <ul>
+            <li>Single Core CPU</li>
+            <li>1GB RAM</li>
+            <li>Ubuntu 20.04</li>
+            <li>25GB of Space</li>
+        </ul>
         <p>
-            A couple of problem arised, everyone had some issues with connecting ADO.NET to the MySQL
-            database, we decided to use <a href="https://mysqlconnector.net/">MySQLConnector</a>, and there are
-            a few differences with connecting to MySQL than Microsoft SQL Server, mainly the connection must
-            use a Username and Password, rather than <a href="https://stackoverflow.com/questions/1250552/what-is-a-trusted-connection">Trusted_Connection</a> in Microsoft SQL Server, which allows Authentication
-            via Windows Authentication. 
+            I used the following guides to help me, 
+            <a href="https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-8.0&tabs=linux-ubuntu">ASP.NET NGINX setup</a>,
+            <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04">NGINX and PHP</a>,
+            lots of tinkering and this <a href="https://stackoverflow.com/questions/74163703/nginx-path-based-routing">StackOverflow article</a>.
+            Essentially the NGINX is acting as a router, and a backend with PHP at the same time. 
+            When a HTTPS request is sent, it determine if it needs to be routed to the Reverse Proxy for ASP.NET.
+            For Example, when a request is sent to <a href="https://mainservlee8219.hopto.org/Home/Main"><code>/Home/Main</code></a>, 
+            it determines that it matches the <code>/*</code> wildcard, and forwards it to ASP.NET. 
+            While, for a request like <a href="https://mainservlee8219.hopto.org/api/senddata.php"><code>/api/senddata.php</code></a>,
+            it determines that it matches the <code>/api/*</code> wildcard, and internally handles it, letting PHP interpret it.
+            The first screenshot shows a test run of the application (running standalone), no systemd services yet, while testing the Reverse Proxy of NGINX.
+            The second screenshot shows the Database Security that we have implemented, in this case creating a new user dedicated to ASP.NET and only granting in certain
+            privileges such as <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code> and <code>DELETE</code> only.
+            The next picture shows the Python code, setting my variable to point at my actual live web server, and setting sslpath to true,
+            background is that Python request has this parameter, <code>Verify</code>, which can either be a boolean, or a path to an SSL/TLS certificate,
+            I set it to <code>True</code>, is to use its internal certificate trusts to verify instead of an external certificate.
+            Next is showing that my server is fully up with HTTPS Certificate, fully trusted by an actual Certificate Authority.
+            The next 3 picture demonstrates the Password Reset Feature, showing how it can send emails, how it is able to generate a token,
+            and successfully resets the password.
+            Lastly, the picture shows the application is fully configured to run as a service, under systemd, and it is able to withstand crashes,
+            and will auto restart, using the command <code>systemctl {command} kestrel-pfdapp.service</code>, where <code>{command}</code> can be
+            <code>status</code>, <code>start</code>, <code>stop</code>, <code>restart</code>, <code>enable</code>, <code>disable</code>, 
+            to show status of service, start it temporarily, stop it temporarily, restart the service, enable (persist through restarts and crashes), disable (reverse of enable) respectively.
+            Next week, I will be connecting my Tableau software to the MySQL database, for data visualisation. Thank you.
         </p>
-        <p>
-            Some of my teammates takes ECAD (E-commerce App Development), which they use XAMPP, PHP, MySQL and Apache already.
-            So this causes a conflict in multiple MySQL instances, and some having password protection, causes some error when running the app.
-            We managed to diagnose and fix the issue, pointing to the right port, (instance of MySQL).
-        </p>
-        <p>
-            Next issue is that, I forgot to bring a few jumper wires along with me to the lesson,
-            and managed to borrow some from the next table, and I set up the Pi, and hooked up both the
-            HuskeyLens and the board. I did some <code>sudo apt update && sudo apt upgrade</code>, and running my application
-            it throwed up Error E2, E3 from the RFID reader. I tried a lot of troubleshooting steps, such as reseating all
-            wires and using a few debugging scripts to no avail. Unfortunately, a few days later, a friend from the other table
-            encountered a similar issue with their sensor, while using the same wire, therefore we can determine that 
-            the wire has gone bad (not making a good connection).
-        </p>
-        <p>
-            Even though it is WhiteSpace week (next week), we will all spend our time on our various aspect of the 
-            project, and meet up one day to synchronise on what has been done. See you next week.
-        </p>
-        <img src="../img/week13/todo.jpg" style="width: 75%; height:auto">
+        <img src="../img/week15/asponlinux.png" style="width: 75%; height:auto">
+        <img src="../img/week15/asppass.png" style="width: 75%; height:auto">
+        <img src="../img/week15/mainserver https.png" style="width: 75%; height:auto">
+        <img src="../img/week15/python to mainserv.png" style="width: 75%; height:auto">
+        <img src="../img/week15/passwordreset.png" style="width: 75%; height:auto">
+        <img src="../img/week15/Screenshot 2024-02-03 020830.png" style="width: 75%; height:auto">
+        <img src="../img/week15/Screenshot 2024-02-03 020901.png" style="width: 75%; height:auto">
+        <img src="../img/week15/systemd.png" style="width: 75%; height:auto">
             <footer>
                 <b>Lee Zhi Wei, 2023</b>
             </footer>
