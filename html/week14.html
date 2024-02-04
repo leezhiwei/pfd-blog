@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFD-Blog</title>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="../css/main.css" rel="stylesheet">
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
+    <!--Navigation bar-->
+    <div id="nav-placeholder">
+    </div>
+    <div class="container">
+        <h2>Week 14</h2>
+        <p>
+            Greetings, welcome to my Week 14 blog, WhiteSpace Week. 
+            This week my main objective is to enable 
+            <a href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a> encryption between my server (Laptop in this case). 
+            I am using the <a href="https://www.apachefriends.org/">XAMPP</a> (XAMPP Apache + MariaDB + PHP + Perl) (a recursive acronym).
+            Setting up HTTPS needs one very important thing, that is a certificate, normally for an open web server on the internet, this is not an issue.
+            Since I am using a device that is not exposed to the public internet, nor do I have a public domain name at the moment, thus means that I am unable get an
+            <a href="https://en.wikipedia.org/wiki/Public_key_certificate#TLS/SSL_server_certificate">SSL/TLS certificate</a> from a trusted authority (for example <a href="https://en.wikipedia.org/wiki/Let's_Encrypt">Let's Encrypt</a>).
+            Therefore I would need to generate my own <a href="https://en.wikipedia.org/wiki/Public_key_certificate#Self-signed_and_root_certificates">Self-Signed Certificate</a>, which uses a tool, for example <a href="https://en.wikipedia.org/wiki/OpenSSL">OpenSSL</a>, to generate a cert, based on a DNS name (internal).
+            In the first picture below, I needed to create a file which listed my <a href="https://stackoverflow.com/questions/43665243/invalid-self-signed-ssl-cert-subject-alternative-name-missing">Subject Alternative Name (SAN)</a> (for testing using Google Chrome).
+            The next 2 picture shows the details of my certificate, including the public key included, the Authority (myself), and even my SAN can be decoded.
+            In the 4th picture, I have set my Apache configuration to deliver my certificate, for every port 443 (HTTPS) request, which is needed for HTTPS. 
+            Next is to let the Raspberry Pi trust the certificate, my exporting the variable <code>SSL_CERT_FILE</code>, for <code>curl</code> to recognise the certificate.
+            In the final picture, success! I have let <code>curl</code> run in verbose mode, printing out that it is using TLSv1.3 and it verified my SSL/TLS 
+            certificate is valid, making a successful HTTPS connection.
+            Thank you very much for listening, I will be actually deploying the 2 app stacks, PHP and ASP.NET over to my cloud server next week. Stay tuned.
+        </p>
+        <img src="../img/week14/sc1.png" style="width: 75%; height:auto">
+        <img src="../img/week14/sc2.png" style="width: 75%; height:auto">
+        <img src="../img/week14/sc3.png" style="width: 75%; height:auto">
+        <img src="../img/week14/sc4.png" style="width: 75%; height:auto">
+        <img src="../img/week14/sc5.png" style="width: 75%; height:auto">
+        <img src="../img/week14/sc6.png" style="width: 75%; height:auto">
+            <footer>
+                <b>Lee Zhi Wei, 2023</b>
+            </footer>
+    </div>
+    <script>
+    $(function(){
+        $("#nav-placeholder").load("./nav.html");
+    });
+    </script>
+    <footer>
+<!--end of Navigation bar-->
+</body>
+</html>
