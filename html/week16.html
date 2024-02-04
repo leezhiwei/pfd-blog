@@ -17,38 +17,31 @@
     <div id="nav-placeholder">
     </div>
     <div class="container">
-        <h2>Week 13</h2>
+        <h2>Week 16</h2>
         <p>
-            Welcome back to the Week 13 blog, where we are back to the classroom at last.
-            We have a couple of things planned for this week, getting the Pi up and running again,
-            and getting the ASP.NET application up, and connected to the MySQL database.
+            Welcome to the final week (before the final presentation), this week I will be working on Tableau.
+            I have connected my "Data Analyst's Computer" to the server's MySQL database via Putty's SSH Tunnel.
+            Port 3307 is mapped to the 3306 on the server. I used my knowledge used in Data Discovery and Visualisation (DDV) module,
+            connected it to the MySQL database remotely.
+            In the first Picture, I have created the data analyst MySQL user, and only granted <code>SELECT</code> permission to the user.
+            In the next picture I created a View based on <code>SELECT from_unixtime(avg(unix_timestamp(`Record`.`TimeOut`))) AS `AVG Time IN` FROM `Record`;</code>.
+            Next, I did a cross join between the 'dummy time values' and the View above, in order for the clock visual to work.
+            For the next picture, I did a Calculated Column, which finds the difference between records and the Shift Time In/Out by Hours.
+            Next are the few visuals that I have created, simple bar charts showing hour differences, and an hour average clock.
+            Lastly, the last 2 are dashboards that show the Interactiveness of the dashboard.
+            <br>This will be my last entry into the blog. Thank you very much for reading over the weeks.
         </p>
-        <p>
-            A couple of problem arised, everyone had some issues with connecting ADO.NET to the MySQL
-            database, we decided to use <a href="https://mysqlconnector.net/">MySQLConnector</a>, and there are
-            a few differences with connecting to MySQL than Microsoft SQL Server, mainly the connection must
-            use a Username and Password, rather than <a href="https://stackoverflow.com/questions/1250552/what-is-a-trusted-connection">Trusted_Connection</a> in Microsoft SQL Server, which allows Authentication
-            via Windows Authentication. 
-        </p>
-        <p>
-            Some of my teammates takes ECAD (E-commerce App Development), which they use XAMPP, PHP, MySQL and Apache already.
-            So this causes a conflict in multiple MySQL instances, and some having password protection, causes some error when running the app.
-            We managed to diagnose and fix the issue, pointing to the right port, (instance of MySQL).
-        </p>
-        <p>
-            Next issue is that, I forgot to bring a few jumper wires along with me to the lesson,
-            and managed to borrow some from the next table, and I set up the Pi, and hooked up both the
-            HuskeyLens and the board. I did some <code>sudo apt update && sudo apt upgrade</code>, and running my application
-            it throwed up Error E2, E3 from the RFID reader. I tried a lot of troubleshooting steps, such as reseating all
-            wires and using a few debugging scripts to no avail. Unfortunately, a few days later, a friend from the other table
-            encountered a similar issue with their sensor, while using the same wire, therefore we can determine that 
-            the wire has gone bad (not making a good connection).
-        </p>
-        <p>
-            Even though it is WhiteSpace week (next week), we will all spend our time on our various aspect of the 
-            project, and meet up one day to synchronise on what has been done. See you next week.
-        </p>
-        <img src="../img/week13/todo.jpg" style="width: 75%; height:auto">
+        <img src="../img/week16/mysql server.png" style="width: 75%; height:auto">
+        <img src="../img/week16/Views.png" style="width: 75%; height:auto">
+        <img src="../img/week16/Cross Join.png" style="width: 75%; height:auto">
+        <img src="../img/week16/Calculated Field.png" style="width: 75%; height:auto">
+        <img src="../img/week16/Viz1.png" style="width: 75%; height:auto">
+        <img src="../img/week16/viz2.png" style="width: 75%; height:auto">
+        <img src="../img/week16/viz3.png" style="width: 75%; height:auto">
+        <img src="../img/week16/voiz4.png" style="width: 75%; height:auto">
+        <img src="../img/week16/viz5.png" style="width: 75%; height:auto">
+        <img src="../img/week16/dash1.png" style="width: 75%; height:auto">
+        <img src="../img/week16/dash1int.png" style="width: 75%; height:auto">
             <footer>
                 <b>Lee Zhi Wei, 2023</b>
             </footer>
